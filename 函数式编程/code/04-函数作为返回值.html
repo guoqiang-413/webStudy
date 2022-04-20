@@ -1,0 +1,22 @@
+<script>
+  // 函数作为返回值
+  // 函数只执行一次实现
+  function once(fn){
+    let done = true
+    return function(){
+      if(done){
+        done = false
+        return fn.apply(this,arguments)
+      }
+    }
+  }
+  
+  let py = once(function(money){
+    console.log("你看我执行了多次次",money);
+  })
+  py(1)
+  py(2)
+  py(3)
+  py(4)
+  py(5)
+</script>

@@ -1,0 +1,30 @@
+<html>
+  <script>
+    // 高阶函数-函数作为参数
+    // 函数作为参数的好处：函数变得更灵活  贴近语义化
+    function foreach(arr, fn) {
+      for (let i = 0; i < arr.length; i++) {
+        fn(arr[i])
+      }
+    }
+
+    let arr = [2, 3, 4, 5]
+    foreach(arr, function (item) {
+      console.log(item);
+    })
+
+    function filter(arr,fn){
+      let arrs = new Array
+      for (let i = 0; i < arr.length; i++) {
+        if(fn(arr[i])){
+          arrs.push(arr[i])
+        }
+      }
+      return arrs
+    }
+    let att = filter(arr,(item)=>{
+      return item%2===0
+    })
+    console.log(att);
+  </script>
+</html>

@@ -1,0 +1,20 @@
+<script>
+  // 闭包的概念；可以在另一个作用域中 访问一个函数的内部函数 内部函数能访问外部函数作用域中的参数  
+  // 比如说 在调用一个函数 该函数会返回一个函数 返回的函数能访问 上一层的函数的参数 这个就叫闭包
+  // 闭包的作用：延长外部函数里面参数的生命周期
+  // 闭包的本质：函数在执行之前会先放到执行栈上 当函数执行完毕之后会把当前函数从执行栈中释放掉（函数执行时 会在堆内存中占用一块内存空间）
+  // 但是函数中内部参数被外部引用的话 这块作用域不会被释放 所以内部函数依然可以访问到外部函数的参数
+  // 闭包函数 案例
+  function mackPower(power){
+    return function(number){
+      return Math.pow(number,power)
+    }
+  }
+
+  let power2 = mackPower(2)
+  let power3 = mackPower(3)
+
+  console.log(power2(2));
+  console.log(power3(3));
+  
+</script>
