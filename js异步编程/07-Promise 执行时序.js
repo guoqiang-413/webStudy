@@ -44,3 +44,6 @@ Promise.resolve('1')
   console.log(val);
 })
 
+
+
+

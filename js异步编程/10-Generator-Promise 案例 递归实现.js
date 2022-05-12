@@ -14,6 +14,22 @@ function ajax(url) {
   })
 }
 
+async function  main() {
+  try {
+    const api = await ajax('../api/api.json')
+    return api
+    console.log(api);
+    const user = await ajax('../api/user.json')
+    console.log(user);
+  } catch (error) {
+    console.log(error);
+  }
+}
+const prm = main()
+prm.then((res)=>{
+  console.log(res,'回调');
+})
+/* 
 function* main() {
   try {
     const api = yield ajax('../api/api.json')
@@ -24,7 +40,7 @@ function* main() {
     console.log(error);
   }
 }
-/* 
+
 
 const g = main()
 const handLeResult = function (result) {
@@ -51,6 +67,7 @@ function co(generator) {
   }
   handLeResult(g.next())
 }
-co(main)
+// co(main)
 
 // 使用generator 方案  让异步调用再次回归到扁平化
+ 

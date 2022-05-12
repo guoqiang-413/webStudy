@@ -13,7 +13,25 @@
   <!-- <script src="./js异步编程/04-Promise 异常处理.js"></script> -->
   <!-- <script src="./js异步编程/06-Promise 并行执行.js"></script> -->
   <!-- <script src="./js异步编程/09-Generator-Promise 案例 .js"></script> -->
-  <script src="./js异步编程/10-Generator-Promise 案例 递归实现.js"></script>
+  <!-- <script src="./js异步编程/10-Generator-Promise 案例 递归实现.js"></script> -->
+  <script>
+    console.log('start')
+    setTimeout(()=>{
+      console.log('time1');
+    },1000)
+    function foo(){
+      console.log('foo');
+      bar()
+    }
+    setTimeout(()=>{
+      console.log('time2');
+    },1500)
+    function bar(){
+      console.log('bar');
+    }
+    foo()
+    console.log('end');
+  </script>
 </body>
 
 </html>
