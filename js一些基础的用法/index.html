@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>循环添加事件实现</title>
+  <style>
+    body{
+      height: 5000px;
+    }
+  </style>
+</head>
+
+<body>
+  <button id="btn" index="1">btn1</button>
+  <button index="2">btn2</button>
+  <button index="3">btn3</button>
+  <div id="skip" class="skip"></div>
+  <!-- 循环添加事件 -->
+  <script src="./01-add-event-loop.js"></script>
+  <script src="./03-防抖节流.js"></script>
+  <script>
+    //数据缓存： 对需要多次使用的数据进行提取保存 后续进行使用
+    // var oBox = document.getElementById('skip')
+    // 假设在当前函数体当中需要对 classNmae 多次使用 我们可以把它提取存储起来
+  /*   function hasClassName(ele,cls){
+      return ele.className === cls
+    }
+    log(hasClassName(oBox,'skip')) 
+
+    function hasClassName(ele,cls){
+      var className = ele.className
+      return className === cls
+    }
+    log(hasClassName(oBox,'skip'))  */
+
+    // var oBtn = document.getElementById('btn')
+    // // 定义执行的函数
+    // function btnClick(ev){
+    //   log('点击了',this,ev)
+    // }
+    // oBtn.onclick = myDebounce(btnClick,1000,false)
+    function scrollFn(){
+      log('滚动了');
+    }
+    window.onscroll= scrollFn
+  </script>
+</body>
+
+</html>
