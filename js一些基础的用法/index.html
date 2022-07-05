@@ -1,3 +1,11 @@
+<!--
+ * @Author: guoqiang
+ * @Date: 2022-06-03 12:40:26
+ * @LastEditors: guoqiang
+ * @LastEditTime: 2022-06-07 16:32:56
+ * @FilePath: \基础\js一些基础的用法\index.html
+ * Copyright (c) 2022, All Rights Reserved. 
+-->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -42,10 +50,14 @@
     //   log('点击了',this,ev)
     // }
     // oBtn.onclick = myDebounce(btnClick,1000,false)
+    function handle(params){
+      console.log(params,'12');
+    }
     function scrollFn(){
       log('滚动了');
+     
     }
-    window.onscroll= scrollFn
+    window.onscroll=  myThrottle(scrollFn,600)
   </script>
 </body>
 

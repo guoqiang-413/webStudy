@@ -1,11 +1,12 @@
 /*
- * @Author: 国强 pgq0413@163.com
- * @Date: 2022-05-16 23:58:29
- * @LastEditors: 国强 pgq0413@163.com
- * @LastEditTime: 2022-05-17 22:18:02
- * @FilePath: \webStudy\js一些基础的用法\03-防抖节流.js
- * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+ * @Author: guoqiang
+ * @Date: 2022-06-03 12:40:26
+ * @LastEditors: guoqiang
+ * @LastEditTime: 2022-06-07 16:38:43
+ * @FilePath: \基础\js一些基础的用法\03-防抖节流.js
+ * Copyright (c) 2022, All Rights Reserved. 
  */
+
 
 /* 
   防抖节流 
@@ -62,15 +63,37 @@ function myDebounce(handle, wait, immediate) {
 /* 
   节流函数实现
 */
-function myThrottle(handle,wait=400) {
-  if(typeof handle !== 'function') throw new Error('handle It s not a function')
-  let timer =null
-  return ()=>{
-    clearInterval(timer)
-    log(this)
-    timer = setTimeout(()=>{
-      log(this)
+function myThrottle(handle, wait = 400) {
+  debugger
+  if (typeof handle !== 'function') throw new Error('handle It s not a function')
+  let previous = 0
+  let timer = null
+  return function proxy(...args) {
+    let self = this
+    let now = new Date() //定义变量记录当前执行的时间节点
+    let interval = wait - (now - previous)
+    if (interval <= 0) {
+      clearTimeout(timer)
+      timer = null
+      // 此时说明是一个非高频次的操作 可以执行 handle
+      handle.call(self,...args)
+      previous = new Date()
+    }else if(!timer){
+      // 超出了这个频率 就不执行handle 定义定时器 让handle 在 interval之后执行
+      timer =  setTimeout(()=>{
+        clearTimeout(timer)
+        timer = null
+        handle.call(self,...args)
+        previous = new Date()
+      },interval)
+    }
+  }
+  return ()=> {
+    let now = new Date() //定义变量记录当前执行的时间节点
+    let interval = wait - (now - previous)
+    if (interval <= 0) {
+      // 此时说明是一个非高频次的操作 可以执行 handle
       handle()
-    },wait)
+    }
   }
 }

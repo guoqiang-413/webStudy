@@ -1,3 +1,11 @@
+/*
+ * @Author: guoqiang
+ * @Date: 2022-06-03 12:40:26
+ * @LastEditors: guoqiang
+ * @LastEditTime: 2022-06-14 19:11:40
+ * @FilePath: \基础\ES2015\13-Map.js
+ * Copyright (c) 2022, All Rights Reserved. 
+ */
 /* 
   Map 数据结构
   Map 和 object 的区别是  Map 能以任意字符的 作为数值的键 而 对象只能以字符作为键
@@ -10,7 +18,7 @@
 */
 const { log } = console
 const obj = {}
-
+ 
 // obj[ture] = 'value'
 // obj[123] = 'value'
 // obj[{a:1}] = 'value'

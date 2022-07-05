@@ -1,3 +1,11 @@
+<!--
+ * @Author: guoqiang
+ * @Date: 2022-06-03 12:40:26
+ * @LastEditors: guoqiang
+ * @LastEditTime: 2022-06-20 10:47:53
+ * @FilePath: \基础\index.html
+ * Copyright (c) 2022, All Rights Reserved. 
+-->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,22 +23,43 @@
   <!-- <script src="./js异步编程/09-Generator-Promise 案例 .js"></script> -->
   <!-- <script src="./js异步编程/10-Generator-Promise 案例 递归实现.js"></script> -->
   <script>
-    console.log('start')
-    setTimeout(()=>{
-      console.log('time1');
-    },1000)
-    function foo(){
-      console.log('foo');
-      bar()
+    const {log} = console
+    // console.log('start')
+    // setTimeout(()=>{
+    //   console.log('time1');
+    // },1000)
+    // function foo(){
+    //   console.log('foo');
+    //   bar()
+    // }
+    // setTimeout(()=>{
+    //   console.log('time2');
+    // },1500)
+    // function bar(){
+    //   console.log('bar');
+    // }
+    // foo()
+    // console.log('end');
+    let parms = {
+      ass :12,
+      qwe: '123',
+      sdda:'sd'
     }
-    setTimeout(()=>{
-      console.log('time2');
-    },1500)
-    function bar(){
-      console.log('bar');
-    }
-    foo()
-    console.log('end');
+   function obj(obj){
+     let newObj = {}
+     for (const key in obj) {
+      let f = key.charAt(0)
+      let newKey = f.toUpperCase() + key.slice(1)
+      console.log(newKey);
+      newObj[newKey] = obj[key]
+     } 
+      return newObj
+    ;
+   }
+  console.log( obj(parms));
+  const b = 112;
+  b = 234
+  log(b)
   </script>
 </body>
 

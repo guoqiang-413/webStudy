@@ -1,3 +1,11 @@
+/*
+ * @Author: guoqiang
+ * @Date: 2022-06-03 12:40:26
+ * @LastEditors: guoqiang
+ * @LastEditTime: 2022-06-20 09:18:57
+ * @FilePath: \基础\ES2015\12-set.js
+ * Copyright (c) 2022, All Rights Reserved. 
+ */
 /* 
   Set 生成数组方法
   Set.size 获取数据长度
@@ -15,3 +23,4 @@ const reslut = Array.from(s)
 log(s.clear())
 log(s)
 // log(reslut)
+

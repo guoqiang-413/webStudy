@@ -1,3 +1,11 @@
+/*
+ * @Author: guoqiang
+ * @Date: 2022-06-03 12:40:26
+ * @LastEditors: guoqiang
+ * @LastEditTime: 2022-06-14 19:11:31
+ * @FilePath: \基础\ES2015\14-Symbol.js
+ * Copyright (c) 2022, All Rights Reserved. 
+ */
 /* 
   Symbol 主要作用就是为对象添加独一无二的属性名
 */
